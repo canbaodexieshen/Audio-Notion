@@ -1,0 +1,20 @@
+name: Notion Audio Processor
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+jobs:
+  process-audio:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with: {python-version: '3.10'}
+    - run: pip install -r requirements.txt  # 直接根目录安装
+    - run: python main.py  # 直接运行根目录文件
+      env:
+        NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+        ALIYUN_KEY_ID: ${{ secrets.ALIYUN_KEY_ID }}
+        ALIYUN_KEY_SECRET: ${{ secrets.ALIYUN_KEY_SECRET }}
