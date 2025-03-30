@@ -1,4 +1,4 @@
 notion-client>=2.0.0
 aliyun-python-sdk-core>=2.13.3
-aliyun-python-sdk-green>=3.0.0
+aliyun-python-sdk-speechfile>=1.0.0  # 关键依赖
 requests>=2.25.1
